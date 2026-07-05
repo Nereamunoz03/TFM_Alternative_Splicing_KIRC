@@ -2,36 +2,44 @@
 
 Esta carpeta contiene el código fuente completo desarrollado durante el análisis bioinformático del Trabajo Fin de Máster.
 
-El pipeline se implementó íntegramente en el lenguaje de programación **R** y se estructuró en **12 scripts independientes**, organizados de forma secuencial para facilitar la reproducibilidad del flujo de trabajo. Cada script ha sido diseñado para ejecutarse de forma independiente. Los datos de entrada se cargan directamente desde los archivos intermedios (.rds) generados en pasos previos, evitando la necesidad de ejecutar nuevamente todo el pipeline y facilitando la reproducibilidad de cada análisis.
+El pipeline fue implementado íntegramente en el lenguaje de programación **R** y se estructuró en **12 scripts independientes**, organizados de forma secuencial para facilitar la reproducibilidad del flujo de trabajo. Cada script puede ejecutarse de forma independiente, cargando automáticamente los archivos intermedios (`.rds`) generados en pasos previos. Este diseño permite reproducir cada etapa del análisis sin necesidad de ejecutar nuevamente todo el pipeline.
 
 ## Organización de los scripts
 
 | Script | Descripción |
 |---------|-------------|
-| Script 01 | Filtrado inicial de la cohorte y unificación de matrices. |
-| Script 02 | Caracterización clínica y demográfica de la cohorte. |
-| Script 03 | Traducción de identificadores Ensembl y control de calidad de la matriz de expresión génica. |
-| Script 04 | Normalización mediante Limma-Voom y análisis de expresión génica diferencial (DGE). |
-| Script 05 | Visualización de los resultados de expresión génica diferencial. |
-| Script 06 | Análisis de splicing alternativo diferencial (DS). |
-| Script 07 | Visualización de los eventos de splicing alternativo. |
-| Script 08 | Anotación funcional y clasificación de los tipos de eventos de splicing. |
-| Script 09 | Análisis de enriquecimiento funcional (GO y KEGG). |
-| Script 10 | Integración multiómica de expresión génica y splicing alternativo. |
-| Script 11 | Análisis de supervivencia mediante curvas de Kaplan-Meier. |
-| Script 12 | Generación de las figuras y tablas finales del estudio. |
+| **Script 01** | Filtrado de la cohorte, procesamiento de las matrices de expresión génica y splicing alternativo, e integración de los datos moleculares y clínicos. |
+| **Script 02** | Exploración descriptiva de la cohorte clínica, generación de gráficos descriptivos y depuración de los estadios tumorales. |
+| **Script 03** | Traducción de identificadores Ensembl a símbolos génicos y control de calidad de la matriz de expresión génica. |
+| **Script 04** | Normalización mediante Limma-Voom, análisis exploratorio mediante PCA y análisis de expresión génica diferencial (DGE). |
+| **Script 05** | Visualización de los resultados de expresión génica diferencial mediante *volcano plots* y *boxplots*. |
+| **Script 06** | Análisis de splicing alternativo diferencial (DS) y análisis exploratorio mediante PCA basado en valores PSI. |
+| **Script 07** | Visualización de los eventos de splicing diferencial mediante *volcano plots* y mapas de calor. |
+| **Script 08** | Anotación funcional de los eventos de splicing y análisis de la distribución de los distintos tipos de eventos. |
+| **Script 09** | Análisis de enriquecimiento funcional mediante Gene Ontology (GO) y KEGG Pathways. |
+| **Script 10** | Integración multiómica entre expresión génica diferencial y splicing alternativo mediante diagramas de Venn e identificación de genes candidatos. |
+| **Script 11** | Evaluación de la asociación entre los genes candidatos y el estado tumoral mediante análisis estadístico comparativo. |
+| **Script 12** | Análisis de supervivencia global mediante curvas de Kaplan–Meier para los genes candidatos identificados. |
 
 ## Requisitos
 
-Los scripts fueron desarrollados utilizando **R** y diversas librerías del proyecto **Bioconductor**, entre ellas:
+Los scripts fueron desarrollados utilizando **R** y diversas librerías de **CRAN** y **Bioconductor**, entre las que se incluyen:
 
+- BiocManager
+- data.table
+- ggplot2
+- ggrepel
+- reshape2
 - edgeR
 - limma
 - biomaRt
-- data.table
-- ggplot2
+- survival
+- survminer
 - pheatmap
 - enrichR
-- openxlsx
+- VennDiagram
+- gtsummary
+- gt
+- grid
 
 El orden de ejecución de los scripts corresponde al flujo de trabajo descrito en el apartado de Material y Métodos de la memoria.
