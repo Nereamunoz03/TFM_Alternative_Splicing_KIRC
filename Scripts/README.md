@@ -2,7 +2,7 @@
 
 Esta carpeta contiene el código fuente completo desarrollado durante el análisis bioinformático del Trabajo Fin de Máster.
 
-El pipeline fue implementado íntegramente en el lenguaje de programación **R** y se estructuró en **12 scripts independientes**, organizados de forma secuencial para facilitar la reproducibilidad del flujo de trabajo. Cada script puede ejecutarse de forma independiente, cargando automáticamente los archivos intermedios (`.rds`) generados en pasos previos. Este diseño permite reproducir cada etapa del análisis sin necesidad de ejecutar nuevamente todo el pipeline.
+El pipeline fue implementado íntegramente en el lenguaje de programación **R** y se estructuró en **12 scripts independientes**, organizados de forma secuencial para facilitar la reproducibilidad del flujo de trabajo. Cada script puede ejecutarse de forma independiente, cargando automáticamente los archivos intermedios generados en pasos previos. Este diseño permite reproducir cada etapa del análisis sin necesidad de ejecutar nuevamente todo el pipeline.
 
 ## Organización de los scripts
 
